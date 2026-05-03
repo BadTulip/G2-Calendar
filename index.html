@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Even G2 Calendar</title>
+  </head>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #1e293b;
+      --primary: #38bdf8;
+      --text: #f8fafc;
+      --text-dim: #94a3b8;
+    }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .container {
+      max-width: 400px;
+      width: 100%;
+      background: var(--card);
+      padding: 24px;
+      border-radius: 16px;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      font-size: 1.5rem;
+      margin-bottom: 8px;
+      text-align: center;
+    }
+    p.subtitle {
+      color: var(--text-dim);
+      font-size: 0.875rem;
+      margin-bottom: 24px;
+      text-align: center;
+    }
+    .section {
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-dim);
+      margin-bottom: 8px;
+    }
+    select, button {
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #334155;
+      background: #0f172a;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    .toggle-group {
+      display: flex;
+      gap: 8px;
+    }
+    .toggle-group button {
+      flex: 1;
+      background: #0f172a;
+      border: 1px solid #334155;
+    }
+    .toggle-group button.active {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #0f172a;
+      font-weight: 600;
+    }
+    .footer {
+      margin-top: 24px;
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      text-align: center;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <h1>Even Calendar</h1>
+      <p id="subtitle" class="subtitle">Personalizza la tua esperienza sui G2</p>
+
+      <div class="section">
+        <label id="labelDevMode">Developer Mode</label>
+        <div class="toggle-group">
+          <button id="devOn">On</button>
+          <button id="devOff" class="active">Off</button>
+        </div>
+      </div>
+
+      <div class="section">
+        <label id="labelGestures">Gestures & Comandi</label>
+        <div id="gestureList" style="font-size: 0.875rem; color: var(--text-dim); line-height: 1.6; background: #0f172a; padding: 12px; border-radius: 8px; border: 1px solid #334155;">
+          <!-- Caricato dinamicamente da main.ts -->
+        </div>
+      </div>
+
+      <div class="section">
+        <label id="labelLang">Lingua Applicazione</label>
+        <select id="langSelect">
+          <option value="en">English</option>
+          <option value="it">Italiano</option>
+          <option value="de">Deutsch</option>
+          <option value="fr">Français</option>
+          <option value="es">Español</option>
+          <option value="zh">中文</option>
+          <option value="ja">日本語</option>
+          <option value="ko">한국어</option>
+        </select>
+      </div>
+
+      <div class="section">
+        <label id="labelWeekStart">Inizio Settimana</label>
+        <div class="toggle-group">
+          <button id="startMon" class="active">Lunedì</button>
+          <button id="startSun">Domenica</button>
+        </div>
+      </div>
+
+      <div id="footerText" class="footer">
+        Le modifiche vengono applicate istantaneamente ai tuoi occhiali.
+      </div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
